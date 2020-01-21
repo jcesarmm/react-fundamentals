@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
+import Contador from './Contador'
 
 function MiComponente(props){
   return <p>Hola Mundo: {props.nombre}</p>
@@ -68,7 +69,7 @@ class Blog extends Component{
     return (<div>
     {this.state.articles.map((article)=>
     {
-      return <p>{article.title}</p>
+      return <div className="card" style={{ backgroundColor: 'red',color:'yellow'}}><p>{article.title}</p></div>
     })
     }</div>);
   }
@@ -77,27 +78,6 @@ class Blog extends Component{
 class MiComponenteDeClase extends Component{
   render(){
     return <p>Hola soy de la clase!</p>
-  }
-}
-
-class Contador extends Component{
-  constructor(props){
-    super(props);
-    this.state={
-      contador: 0
-    };
-  }
-
-  aumentar = ()=>{
-    this.setState(
-      {
-        contador: this.state.contador + 1
-      })
-  }
-  render(){
-    return <div><p>Contador: {this.state.contador}</p>
-    <button onClick={this.aumentar}>Aumentar</button>
-    </div>
   }
 }
 class App extends Component {
